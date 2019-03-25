@@ -1,0 +1,5 @@
+home:
+    search.button: "#tsf > div:nth-child(2) > div > div.FPdoLc.VlcLAe > center > input[type='submit']:nth-child(1)"
+    search.text: "input[type='text'][name='q']"
+    search.result: "#resultStats"
+    search.output: "#rso > div:nth-child(1) > div > div:nth-child(1) > div > div > div.r > a > h3"
