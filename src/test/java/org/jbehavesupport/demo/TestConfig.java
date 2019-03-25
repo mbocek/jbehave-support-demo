@@ -1,5 +1,7 @@
 package org.jbehavesupport.demo;
 
+import org.jbehavesupport.core.report.XmlReporterFactory;
+import org.jbehavesupport.core.report.extension.TestContextXmlReporterExtension;
 import org.jbehavesupport.core.web.WebSetting;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -15,5 +17,15 @@ class TestConfig {
             .homePageUrl("https://www.google.com")
             .elementLocatorsSource("ui-mapping/*.yaml")
             .build();
+    }
+
+    @Bean
+    public XmlReporterFactory xmlReporterFactory() {
+        return new XmlReporterFactory();
+    }
+
+    @Bean
+    public TestContextXmlReporterExtension testContextXmlReporterExtension () {
+        return new TestContextXmlReporterExtension();
     }
 }
