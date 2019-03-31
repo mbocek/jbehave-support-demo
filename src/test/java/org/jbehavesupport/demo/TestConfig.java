@@ -1,7 +1,9 @@
 package org.jbehavesupport.demo;
 
 import org.jbehavesupport.core.report.XmlReporterFactory;
+import org.jbehavesupport.core.report.extension.RestXmlReporterExtension;
 import org.jbehavesupport.core.report.extension.TestContextXmlReporterExtension;
+import org.jbehavesupport.core.rest.RestServiceHandler;
 import org.jbehavesupport.core.web.WebSetting;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -20,6 +22,12 @@ class TestConfig {
     }
 
     @Bean
+    @Qualifier("OWM")
+    public RestServiceHandler testRestServiceHandler() {
+        return new RestServiceHandler("http://api.openweathermap.org");
+    }
+
+    @Bean
     public XmlReporterFactory xmlReporterFactory() {
         return new XmlReporterFactory();
     }
@@ -27,5 +35,10 @@ class TestConfig {
     @Bean
     public TestContextXmlReporterExtension testContextXmlReporterExtension () {
         return new TestContextXmlReporterExtension();
+    }
+
+    @Bean
+    public RestXmlReporterExtension restXmlReporterExtension() {
+        return new RestXmlReporterExtension();
     }
 }
